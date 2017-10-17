@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<!--<iframe src="http://localhost/dia-das-criancas/parque.html" width="100%" height="750px" frameborder="0"></iframe>-->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Dia das Crianças - JC</title>
+
+    <link rel="stylesheet" type="text/css" href="src/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+    <!--    JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="src\jquery-google-sheet-to-json/jquery-google-sheet-to-json.min.js"></script>
+    <script type="text/javascript">
+        var tabela = document.querySelector('#tabela-programacao');
+        var worksheets = [];
+        var titulo = $('#titulo-modal');
+
+        // CONTROLE DE JSON
+        function carregaGrafico() {
+
+            var tabelaApoio = document.querySelector('#tabela-programacao');
+
+            var horaTd = "";
+            var atracaoTd = "";
+            var trApoio;
+            worksheets.forEach(function(worksheet) {
+                $.googleSheetToJSON('17lkUFbhC8ytN704eSlw47LAyNBpE1Sy7CiAuOOysj10', worksheet)
+                .done(function(rows) {
+
+                    console.log(rows);
+                    rows.forEach(function(objeto) {
+                        var programaTr = document.createElement("tr");
+                        dataTd = montarTd(objeto.data);                  
+                        horaTd = montarTd(objeto.horário);
+                        atracaoTd = montarTd(objeto.atração);
+
+                        programaTr.appendChild(dataTd);
+                        programaTr.appendChild(horaTd);
+                        programaTr.appendChild(atracaoTd);
+
+                        console.log(programaTr);
+
+                        trApoio = programaTr;
+                        tabelaApoio.appendChild(trApoio);
+                    });
+
+
+
+                })
+
+
+                .fail(function(err) {
+                    console.log('error! LISTA VAZIA', err);
+                });
+            });
+        }
+
+        function montarWks(valor) {
+            var titulo = $('#titulo-modal');
+            var rua = $('#rua-lugar-escolhido');
+            var bairro = $('#bairro-lugar-escolhido');
+            var fone = $('#fone-lugar-escolhido');
+            switch (valor) {
+                case 'Jaqueira':
+                $('#foto-lugar').attr('src', 'src/img/jaqueira.jpg');
+                $('#foto-lugar-mobile').attr('src', 'src/img/jaqueira-mobile.jpg');
+                titulo.text('Parque da Jaqueira');
+                rua.text('R. do Futuro, 959');
+                bairro.text('Graças, Recife - PE');
+                fone.text('(81) 98863-5274');
+                worksheets = ['1'];
+                break;
+
+                case 'Dona Lindu':
+                $('#foto-lugar').attr('src', 'src/img/lindu.jpg');
+                $('#foto-lugar-mobile').attr('src', 'src/img/lindu-mobile.jpg');
+                titulo.text('Parque Dona Lindu');
+                rua.text('Avenida Boa Viagem, s/n');
+                bairro.text('Boa Viagem, Recife - PE');
+                fone.text('(81) 3355-9821');
+                worksheets = ['2'];
+                break;
+
+                case 'Santana':
+                $('#foto-lugar').attr('src', 'src/img/santana.jpg');
+                $('#foto-lugar-mobile').attr('src', 'src/img/santana-mobile.jpg');
+                titulo.text('Parque de Santana');
+                rua.text('R. Jorge Gomes de Sá, s/n');
+                bairro.text('Santana, Recife - PE');
+                fone.text('(81) 3355-8000');
+                worksheets = ['3'];
+                break;
+
+                case '13 de Maio':
+                $('#foto-lugar').attr('src', 'src/img/13demaio.jpg');
+                $('#foto-lugar-mobile').attr('src', 'src/img/13demaio-mobile.jpg');
+                titulo.text('Parque 13 de Maio');
+                rua.text('R. Mamede Simões, 111');
+                bairro.text('Boa Vista, Recife - PE');
+                fone.text('(81) 3355-5500');
+                worksheets = ['4'];
+                break;
+
+                case 'Sitio Trindade':
+                $('#foto-lugar').attr('src', 'src/img/trindade.jpg');
+                $('#foto-lugar-mobile').attr('src', 'src/img/trindade-mobile.jpg');
+                titulo.text('Sitio Trindade');
+                rua.text('Estr. do Arraial, 3259');
+                bairro.text('Casa Amarela, Recife - PE');
+                fone.text('(81) 3355-3410');
+                worksheets = ['5'];
+                break;
+
+                case 'Mirabilândia':
+                $('#foto-lugar').attr('src', 'src/img/mirabi.jpg');
+                $('#foto-lugar-mobile').attr('src', 'src/img/mirabi-mobile.jpg');
+                titulo.text('Mirabilândia');
+                rua.text('Av. Prof. Andrade Bezerra, 1285');
+                bairro.text('Salgadinho, Olinda - PE');
+                fone.text('(81) 3366-2000');
+                worksheets = ['6'];
+                break;
+            }
+            limparTabela();
+            carregaGrafico();
+        }
+
+        function limparTabela() {
+            var tabela = document.querySelector('#tabela-programacao');
+            var tableHeaderRowCount = 1;
+
+            if (tabela.rows.length != null) {
+                var rowCount = tabela.rows.length;
+                for (var i = tableHeaderRowCount; i < rowCount; i++) {
+                    tabela.deleteRow(tableHeaderRowCount);
+                }
+            }
+        }
+
+        function montarTr(paciente) {
+            var programaTr = document.createElement("tr");
+            programaTr.appendChild(horaTd);
+            programaTr.appendChild(atracaoTd);
+
+            return pacienteTr;
+        }
+
+        function adicionaPacienteNaTabela(paciente) {
+            var tabela = document.querySelector('#tabela-programacao');
+            tabela.appendChild(programaTr);
+        }
+
+        function montarTd(valor) {
+
+            var td = document.createElement('td');
+            td.textContent = valor;
+            return td;
+
+        }
+
+
+        function animar(value){
+            var campo = $(value);
+            campo.addClass('animated pulse');       
+        }
+
+        function zerar(value){
+            var campo = $(value);
+            campo.removeClass('animated pulse');
+        }
+
+    </script>
+
+
+</head>
+
+<body  class="animated zoomIn">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" data-ride="carousel" data-interval="false">
+                   <i class="fa fa-bars" aria-hidden="true"></i>
+               </button>
+               <a class="navbar-brand" href="index.html"><img src="src/img/logo.png" class="logo-menu-mobile"></a>
+           </div>
+           <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="info.html">Voltar aos locais</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="arte-total">
+
+    <div id="escolha-parque">
+        <div class="container">
+            <div class="row">
+                <div class=" zerar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div id="topo-parque">
+
+
+                        <img src="src/img/criancas.png" alt="crianças" class="imagem-criancas">
+
+                    </div>
+                    <div id="corpo-parque">
+                        <h2 id="titulo-lugar-escolhido">Parques</h2>
+
+                    </div>
+                    <h2 id="frase-lugar-escolhido" class="titulo-info">Escolha o nosso parque!!!</h2>
+                    <div id="teatros-escolhidos">
+
+                        <ul class="lista-parques">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <li onmouseover="animar('.jaqueira');" onmouseout="zerar('.jaqueira');">
+                                            <a href="#" data-toggle="modal" data-target="#modal-parque" onclick="montarWks('Jaqueira')">
+                                                <div id="campo-botao-info" class="jaqueira">
+                                                    <div class="mascara-btn-info">
+
+                                                    </div>
+                                                    <span class="btn-escolhas"> Jaqueira</span>
+                                                    <img src="src/img/botao-parque-info.jpg" alt="Casa">
+                                                    <div class="sombra-btn-info">
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </div>
+<!--                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <li onmouseover="animar('.dona-lindu');" onmouseout="zerar('.dona-lindu');">
+                                            <a href="#" data-toggle="modal" data-target="#modal-parque" onclick="montarWks('Dona Lindu')">
+                                                <div id="campo-botao-info" class="dona-lindu">
+                                                    <div class="mascara-btn-info">
+
+                                                    </div>
+                                                    <span class="btn-escolhas">  Dona Lindu </span>
+                                                    <img src="src/img/botao-parque-info.jpg" alt="Casa">
+                                                    <div class="sombra-btn-info">
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </div> -->
+<!--                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <li onmouseover="animar('.santana');" onmouseout="zerar('.santana');">
+                                            <a href="#" data-toggle="modal" data-target="#modal-parque" onclick="montarWks('Santana')">
+                                                <div id="campo-botao-info" class="santana">
+                                                    <div class="mascara-btn-info">
+
+                                                    </div>
+                                                    <span class="btn-escolhas"> Santana </span>
+                                                    <img src="src/img/botao-parque-info.jpg" alt="Casa">
+                                                    <div class="sombra-btn-info">
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </div> -->
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <li onmouseover="animar('.13-maio');" onmouseout="zerar('.13-maio');">
+                                            <a href="#" data-toggle="modal" data-target="#modal-parque" onclick="montarWks('13 de Maio')">
+                                                <div id="campo-botao-info" class="13-maio">
+                                                    <div class="mascara-btn-info">
+
+                                                    </div>
+                                                    <span class="btn-escolhas"> Treze de Maio </span>
+                                                    <img src="src/img/botao-parque-info.jpg" alt="Casa">
+                                                    <div class="sombra-btn-info">
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <li onmouseover="animar('.sitio-trindade');" onmouseout="zerar('.sitio-trindade');">
+                                            <a href="#" data-toggle="modal" data-target="#modal-parque" onclick="montarWks('Sitio Trindade')">
+                                                <div id="campo-botao-info" class="sitio-trindade">
+                                                    <div class="mascara-btn-info">
+
+                                                    </div>
+                                                    <span class="btn-escolhas"> Sitio Trindade </span>
+                                                    <img src="src/img/botao-parque-info.jpg" alt="Casa">
+                                                    <div class="sombra-btn-info">
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                        <li onmouseover="animar('.mirabilandia');" onmouseout="zerar('.mirabilandia');">
+                                            <a href="#" data-toggle="modal" data-target="#modal-parque" onclick="montarWks('Mirabilândia');">
+                                                <div id="campo-botao-info" class="mirabilandia">
+                                                    <div class="mascara-btn-info">
+
+                                                    </div>
+                                                    <span class="btn-escolhas"> Mirabilândia </span>
+                                                    <img src="src/img/botao-parque-info.jpg" alt="Casa">
+                                                    <div class="sombra-btn-info">
+
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-parque" class="modal fade animated rubberBand" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title" id="titulo-modal">Programação</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="imagem-modal">
+                        <img src="" alt="" id="foto-lugar" width="100%" height="auto" />
+                        <img src="" alt="" id="foto-lugar-mobile" width="100%" height="auto" />
+                    </div>
+                    <div>
+                        <p id="rua-lugar-escolhido"></p>
+                        <p id="bairro-lugar-escolhido"></p>
+                        <p id="fone-lugar-escolhido"></p>
+                    </div>
+                    <table style="width:100%" id="tabela-programacao">
+                        <tr id="cabecalho-programacao">
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Atração</th>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+<section class="expediente">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tit-expediente">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="fonte-especial">Expediente</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                        <h3 class="titulo-expediente">Diretoria</h3>
+                        <p class="cargo-expediente">Laurindo Ferreira</p>
+                        <p class="nome-expediente">Diretor de Redação do Jornal do Commercio</p>
+                        <p class="cargo-expediente">Maria Luiza Borges</p>
+                        <p class="nome-expediente">Diretora de Conteúdos Digitais</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                        <h3 class="titulo-expediente">Conteúdo</h3>
+                        <p class="cargo-expediente">Amanda Tavares</p>
+                        <p class="nome-expediente">Reportagem</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                        <h3 class="titulo-expediente">Imagens</h3>
+                        <p class="cargo-expediente">Acervo JC</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                        <h3 class="titulo-expediente">Design</h3>
+                        <p class="cargo-expediente">Diego Feitoza</p>
+                        <p class="nome-expediente">Design e Front-End</p>
+                        <p class="cargo-expediente">Thiago Lucas</p>
+                        <p class="nome-expediente">Ilustrações</p>
+                        <p class="cargo-expediente">Moisés Falcão</p>
+                        <p class="nome-expediente">Coordenador de Design Digital</p>
+                    </div>
+                </div>
+                <!-- row -->
+            </div>
+            <!-- col -->
+        </div>
+        <!-- row -->
+    </div>
+</section>
+</body>
+
+</html>

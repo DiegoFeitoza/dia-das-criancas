@@ -1,0 +1,935 @@
+@font-face {
+    font-family: 'AmaticSC';
+    src: url("../fonts/AmaticSC-Regular.otf");
+}
+
+@font-face {
+    font-family: 'SpicyRice';
+    src: url("../fonts/SpicyRice-Regular.otf");
+}
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500');
+body {
+    background-image: url('../img/bg-desktop.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-color: #00AEEF !important;
+}
+
+.modal {
+  text-align: center;
+  vertical-align: top;
+}
+
+/*  .modal::before {
+    display: inline-block;
+    content: " ";
+    height: 10%;
+  } */
+
+.modal-dialog {
+  display: inline-block;
+}
+
+p#rua-lugar-escolhido,
+#bairro-lugar-escolhido,
+#fone-lugar-escolhido {
+    margin: 0 !important;
+}
+
+#arte-total {
+    max-width: 640px !important;
+    margin: 0 auto;
+    padding-bottom: 2px;
+    text-align: center;
+    padding-left: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: relative !important;
+    display: block !important;
+    clear: both;
+}
+
+#arte-total .container {
+    max-width: 680px !important;
+}
+
+#topo-logo {
+    text-align: center;
+    margin-top: 80px;
+}
+
+#foto-lugar {
+    display: block;
+}
+
+#foto-lugar-mobile {
+    display: none;
+}
+
+#criancas-abertura {
+    width: 100%;
+    padding: 0;
+    margin-top: 50px;
+}
+
+img.imagem-criancas {
+    width: 220px;
+    bottom: 0 !important;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 !important;
+    left: 110px;
+}
+
+img.imagem-criancas-casa {
+    width: 220px;
+    bottom: 0 !important;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 !important;
+    left: 0px;
+}
+
+img.grade-casa {
+    bottom: 0;
+    position: absolute;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 100%;
+    left: 0;
+    z-index: 5;
+}
+
+#menina-corre {
+    background-image: url('../img/corridaFrenteMenina.png');
+    background-position: 0 0;
+    background-size: auto 100%;
+    height: 260px;
+    width: 150px;
+    margin-right: -5px;
+    margin-left: 5px;
+    margin-top: 120px;
+}
+
+#menino-corre {
+    background-image: url('../img/corridaFrenteMenino.png');
+    background-position: 0 0;
+    background-size: auto 100%;
+    text-align: left;
+    height: 260px;
+    width: 150px;
+    margin-left: -5px;
+    margin-top: 120px;
+}
+
+#teste-corrida {
+    width: 100%;
+    margin: 0;
+    display: inline-flex;
+    text-align: center;
+    padding-left: 25%;
+}
+
+#baloes-abertura {
+    width: 45%;
+    position: absolute;
+    background-image: url('../img/baloes.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    height: 170px;
+    transition: all 0.2s;
+}
+
+#baloes-abertura h3 {
+    font-family: 'AmaticSC';
+    font-size: 3em;
+    width: 100%;
+    margin-top: 35px;
+}
+
+#baloes-abertura p {
+    font-size: 15px;
+    margin-top: -11px;
+    width: 55%;
+    text-align: center;
+    margin: -10px auto;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 14px;
+}
+
+#texto-balao {
+    transition: all 0.2s;
+}
+
+
+/*    Info.html*/
+
+nav.navbar.navbar-inverse {
+    margin-top: 25px;
+    height: 50px;
+    background: rgba(19, 179, 235, 1);
+    border: 0px;
+}
+
+a.navbar-brand {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    padding: 0;
+}
+
+nav.navbar.navbar-inverse a {
+    font-family: 'AmaticSC' !important;
+    font-size: 2em !important;
+}
+
+img.logo-menu-mobile {
+    max-width: 160px;
+    margin: 0 auto;
+    z-index: 5;
+}
+
+button.navbar-toggle {
+    border: 0;
+    font-size: 2em;
+    margin: 0 10px;
+    padding: 5px;
+    background: none !important;
+    z-index: 5;
+}
+
+li {
+    position: relative !important;
+}
+
+button.navbar-toggle i {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+div#myNavbar {
+    background: #13B3EB;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff !important;
+    background-color: #13B3EB !important;
+    font-size: 1.2em;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h2.titulo-info {
+    font-family: 'SpicyRice';
+    color: white;
+    text-shadow: 2px 2px 0px #00A0D1;
+    margin-bottom: 30px;
+}
+
+div#abre-info {
+    margin-top: 50px;
+}
+
+span.btn-mask-info {
+    height: 35px;
+    background: url(../img/botao-abre-info.png);
+    width: 110px !important;
+    padding: -2px;
+    position: absolute;
+    margin: -10px 10px;
+    font-family: 'AmaticSC';
+    color: white;
+    font-size: 25px;
+}
+
+.mascara-btn-info {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    border: 4px solid #13B3EB;
+    line-height: 28px;
+}
+
+.sombra-btn-info {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background: white;
+    transform: rotate(3deg);
+    bottom: 0px;
+}
+
+div#campo-botao-info, div#campo-botao-info-shopping, div#campo-botao-info-teatro, div#campo-botao-info-parque {
+    margin-bottom: 25px;
+    position: relative !important;
+}
+
+div#campo-botao-info img, div#campo-botao-info-shopping img, div#campo-botao-info-teatro img, div#campo-botao-info-parque img  {
+    width: 100%;
+    height: auto;
+}
+
+#titulo-lugar-escolhido {
+    height: 48px;
+    background: url(../img/botao-abre-info.png);
+    width: 150px !important;
+    position: absolute;
+    margin: -15px auto !important;
+    background-repeat: no-repeat !important;
+    font-family: 'AmaticSC';
+    color: white;
+    background-size: 100% auto;
+    font-size: 30px;
+    left: 38%;
+}
+
+#topo-casa {
+    position: relative !important;
+    background: url(../img/bg-casa-escolhido.jpg);
+    width: 65%;
+    height: 255px;
+    background-size: 100% auto;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    z-index: -1;
+    border: 4px solid #13B3EB;
+    overflow: hidden;
+}
+
+span.btn-escolhas {
+    height: auto;
+    width: 100% !important;
+    padding: 7px;
+    position: absolute;
+    margin: -10px auto;
+    font-family: 'AmaticSC';
+    color: white;
+    font-size: 24px;
+    background: #13B3EB;
+}
+
+ul.lista-brincadeiras .container,
+ul.lista-teatros .container,
+ul.lista-shoppings .container,
+ul.lista-parques .container {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+div#escolha-casa {
+    position: relative !important;
+}
+
+#topo-shopping {
+    position: relative !important;
+    background: url(../img/bg-shopping-escolhido.jpg);
+    width: 65%;
+    height: 255px;
+    background-size: 100% auto;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    z-index: -1;
+    border: 4px solid #13B3EB;
+    overflow: hidden;
+}
+
+table#tabela-programacao tr td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+div#escolha-shopping {
+    position: relative !important;
+}
+
+#topo-teatro {
+    position: relative !important;
+    background: url(../img/bg-teatro-escolhidos.jpg);
+    width: 65%;
+    height: 255px;
+    background-size: 100% auto;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    z-index: -1;
+    border: 4px solid #13B3EB;
+    overflow: hidden;
+}
+
+div#escolha-teatro {
+    position: relative !important;
+}
+
+#topo-parque {
+    position: relative !important;
+    background: url(../img/bg-parque-escolhido.jpg);
+    width: 65%;
+    height: 255px;
+    background-size: 100% auto;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    z-index: -1;
+    border: 4px solid #13B3EB;
+    overflow: hidden;
+}
+
+div#escolha-parque {
+    position: relative !important;
+}
+
+.zerar {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+div#sombra-escolha {
+    width: 101%;
+    height: 101%;
+    background: white;
+    transform: rotate(3deg);
+    z-index: -100;
+    position: absolute;
+    top: 0;
+}
+
+h2#frase-lugar-escolhido {
+    margin-top: 35px;
+    font-size: 3em;
+    margin: 50px auto;
+}
+
+ul.lista-brincadeiras,
+ul.lista-teatros,
+ul.lista-parques,
+ul.lista-shoppings {
+    padding: 0 !important;
+    0 margin: 0 !important;
+}
+
+ul.lista-brincadeiras li,
+ul.lista-teatros li,
+ul.lista-parques li,
+ul.lista-shoppings li {
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+}
+
+#imagem-modal {
+    width: 100%;
+    height: 210px;
+    background: grey;
+    margin-bottom: 10px;
+    border: 4px solid #13B3EB;
+    overflow: hidden;
+}
+
+.modal-content {
+    color: white;
+    border-radius: 0px !important;
+    font-family: 'AmaticSC';
+    font-size: 30px;
+    background: url(../img/bg-geral.jpg) center top no-repeat fixed !important;
+    /*
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        */
+        background-size: 100% 100% !important;
+    }
+
+    p#dados-lugar-escolhido {
+        font-size: 24px;
+        font-weight: 100;
+    }
+
+    td,
+    th {
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    tr#cabecalho-programacao th {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2);
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-header .close {
+        /* margin-top: -2px; */
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+        line-height: 40px;
+        background: rgba(255, 255, 255, 0.5);
+        margin: 0 !important;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #30c5f9;
+        opacity: 1;
+        padding: 0 !important;
+    }
+
+    #linha-programacao {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    div#modal-brincadeira .modal-content {
+        font-size: 24px !important;
+        text-align: left !important;
+    }
+
+    div#modal-brincadeira .modal-header {
+        text-align: center;
+        /* font-size: 1em; */
+    }
+
+    
+    p#dados-lugar-escolhido {
+        font-size: 24px;
+        font-weight: 100;
+    }
+
+    td,
+    th {
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    tr#cabecalho-programacao th {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.2);
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-header .close {
+        /* margin-top: -2px; */
+        font-size: 2em;
+        width: 50px;
+        height: 50px;
+        line-height: 40px;
+        background: rgba(255, 255, 255, 0.5);
+        margin: 0 !important;
+        position: absolute;
+        right: 0;
+        top: 0;
+        color: #30c5f9;
+        opacity: 1;
+        padding: 0 !important;
+    }
+
+    #linha-programacao {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    div#modal-brincadeira .modal-content {
+        font-size: 24px !important;
+        text-align: left !important;
+    }
+
+    div#modal-brincadeira .modal-header {
+        text-align: center;
+        /* font-size: 1em; */
+    }
+    section.expediente {
+        font-family: 'AmaticSC';
+        color: white;
+        font-size: 23px;
+        background-color: rgba(0,174,239,1);
+        margin-top: 20px;
+    }
+
+    h2.fonte-especial {
+        text-align: center;
+        font-size: 2em;
+        background: #00AEEF !important;
+    }
+    h3.titulo-expediente {
+        font-size: 1.4em;
+        font-weight: 600;
+    }
+    p.cargo-expediente {
+        font-weight: 700;
+        font-size: 20px;
+        font-family: 'Ubuntu', sans-serif !important;
+    }
+    p.nome-expediente {
+        font-family: 'Ubuntu', sans-serif !important;
+        font-size: 17px;
+    }
+
+
+    /* Edição para Mobile */
+
+    @media screen and (max-width: 426px) {
+        body {
+            background-image: url('../img/bg-abertura.jpg') !important;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-color: #00AEEF !important;
+        }
+        #foto-lugar {
+            display: none;
+        }
+        #foto-lugar-mobile {
+            display: block;
+        }
+        #arte-total {
+            max-width: 275px !important;
+            margin: 0 auto;
+            padding-bottom: 2px;
+            text-align: center;
+            padding-left: 0 !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+        #topo-logo {
+            text-align: center;
+            margin-top: 15px !important;
+        }
+        #criancas-abertura {
+            width: 100%;
+            padding: 0;
+            margin-top: 50px;
+        }
+        #menina-corre {
+            background-image: url('../img/corridaFrenteMenina.png');
+            background-position: 0 0;
+            background-size: auto 100%;
+            height: 260px;
+            width: 150px;
+            margin-right: -5px;
+            margin-left: 5px;
+            margin-top: 120px;
+        }
+        #menino-corre {
+            background-image: url('../img/corridaFrenteMenino.png');
+            background-position: 0 0;
+            background-size: auto 100%;
+            text-align: left;
+            height: 260px;
+            width: 150px;
+            margin-left: -5px;
+            margin-top: 120px;
+        }
+        #teste-corrida {
+            width: 100%;
+            margin: 0;
+            display: inline-flex;
+            text-align: center;
+            padding: 0 !important;
+        }
+        #baloes-abertura {
+            width: 100%;
+            position: absolute;
+            background-image: url('../img/baloes.png');
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            height: 170px;
+            transition: all 0.2s;
+        }
+        #baloes-abertura h3 {
+            font-family: 'AmaticSC';
+            font-size: 3em;
+            width: 100%;
+            margin-top: 35px;
+        }
+        #baloes-abertura p {
+            font-size: 15px;
+            margin-top: -11px;
+            width: 55%;
+            text-align: center;
+            margin: -10px auto;
+            font-family: 'Ubuntu', sans-serif;
+            line-height: 14px;
+        }
+        #texto-balao {
+            transition: all 0.2s;
+        }
+        /*    Info.html*/
+        nav.navbar.navbar-inverse {
+            margin-top: 25px;
+            height: 50px;
+            background: rgba(19, 179, 235, 1);
+            border: 0px;
+            z-index: 6;
+        }
+        table#tabela-programacao tr td {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        a.navbar-brand {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 0;
+            padding: 0;
+        }
+        nav.navbar.navbar-inverse a {
+            font-family: 'AmaticSC' !important;
+            font-size: 2em !important;
+        }
+        img.logo-menu-mobile {
+            max-width: 160px;
+            margin: 0 auto;
+            z-index: 100;
+        }
+        button.navbar-toggle {
+            border: 0;
+            font-size: 2em;
+            margin: 0 10px;
+            padding: 5px;
+            background: none !important;
+            z-index: 5;
+        }
+        img.imagem-criancas-casa {
+            width: 140px;
+            bottom: 0 !important;
+            position: absolute;
+            margin: 0 auto;
+            padding: 0 !important;
+            left: 0px;
+        }
+        img.imagem-criancas {
+            width: 140px;
+            bottom: 0 !important;
+            position: absolute;
+            margin: 0 auto;
+            padding: 0 !important;
+            left: 70px;
+        }
+        button.navbar-toggle i {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        div#myNavbar {
+            background: #13B3EB;
+        }
+        .navbar-inverse .navbar-nav>.active>a,
+        .navbar-inverse .navbar-nav>.active>a:focus,
+        .navbar-inverse .navbar-nav>.active>a:hover {
+            color: #fff !important;
+            background-color: #13B3EB !important;
+            font-size: 1.2em;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        h2.titulo-info {
+            font-family: 'SpicyRice';
+            color: white;
+            text-shadow: 2px 2px 0px #00A0D1;
+            margin-bottom: 30px;
+        }
+        div#abre-info {
+            margin-top: 50px;
+        }
+        span.btn-mask-info {
+            height: 35px;
+            background: url(../img/botao-abre-info.png);
+            width: 110px !important;
+            padding: -2px;
+            position: absolute;
+            margin: -10px 10px;
+            font-family: 'AmaticSC';
+            color: white;
+            font-size: 25px;
+        }
+        div#campo-botao-info, div#campo-botao-info-shopping, div#campo-botao-info-teatro, div#campo-botao-info-parque{
+            margin-bottom: 25px;
+            position: relative !important;
+        }
+        div#campo-botao-info img, div#campo-botao-info-shopping img, div#campo-botao-info-teatro img, div#campo-botao-info-parque img {
+            width: 100%;
+            height: auto;
+        }
+        .mascara-btn-info {
+            width: 129px;
+            height: 128px;
+            background: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            border: 4px solid #13B3EB;
+            line-height: 28px;
+        }
+        .sombra-btn-info {
+            width: 130px;
+            height: 130px;
+            position: absolute;
+            z-index: -1;
+            background: white;
+            transform: rotate(3deg);
+            bottom: 0px;
+        }
+        #titulo-lugar-escolhido {
+            height: 41px;
+            background: url(../img/botao-abre-info.png);
+            width: 130px !important;
+            position: absolute;
+            margin: -10px auto;
+            background-repeat: no-repeat !important;
+            font-family: 'AmaticSC';
+            color: white;
+            background-size: 100% auto;
+            font-size: 30px;
+            left: 25%;
+        }
+        #topo-casa {
+            position: relative !important;
+            background: url(../img/bg-casa-escolhido.jpg);
+            width: 100%;
+            height: 150px;
+            background-size: 100% auto;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: -1;
+            border: 4px solid #13B3EB;
+            overflow: hidden;
+        }
+        span.btn-escolhas {
+            height: auto;
+            width: 100% !important;
+            padding: 7px;
+            position: absolute;
+            margin: -10px auto;
+            font-family: 'AmaticSC';
+            color: white;
+            font-size: 24px;
+            background: #13B3EB;
+        }
+        ul.lista-brincadeiras .container,
+        ul.lista-teatros .container,
+        ul.lista-shoppings .container,
+        ul.lista-parques .container {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        div#escolha-casa {
+            position: relative !important;
+        }
+        #topo-shopping {
+            position: relative !important;
+            background: url(../img/bg-shopping-escolhido.jpg);
+            width: 100%;
+            height: 150px;
+            background-size: 100% auto;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: -1;
+            border: 4px solid #13B3EB;
+            overflow: hidden;
+        }
+        div#escolha-shopping {
+            position: relative !important;
+        }
+        #topo-teatro {
+            position: relative !important;
+            background: url(../img/bg-teatro-escolhidos.jpg);
+            width: 100%;
+            height: 150px;
+            background-size: 100% auto;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: -1;
+            border: 4px solid #13B3EB;
+            overflow: hidden;
+        }
+        div#escolha-teatro {
+            position: relative !important;
+        }
+        #topo-parque {
+            position: relative;
+            background: url(../img/bg-parque-escolhido.jpg);
+            width: 100%;
+            height: 150px;
+            background-size: 100% auto;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: -1;
+            border: 4px solid #13B3EB;
+        }
+        div#escolha-parque {
+            position: relative !important;
+        }
+        .zerar {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        div#sombra-escolha {
+            width: 101%;
+            height: 101%;
+            background: white;
+            transform: rotate(3deg);
+            z-index: -100;
+            position: absolute;
+            top: 0;
+        }
+        h2#frase-lugar-escolhido {
+            margin-top: 35px;
+        }
+        ul.lista-brincadeiras {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        ul.lista-brincadeiras li {
+            display: inline-block;
+            list-style: none;
+            text-align: center;
+        }
+        ul.lista-teatros {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        ul.lista-teatros li {
+            display: inline-block;
+            list-style: none;
+            text-align: center;
+        }
+        ul.lista-parques {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        ul.lista-parques li {
+            display: inline-block;
+            list-style: none;
+            text-align: center;
+        }
+        #imagem-modal {
+            width: 100%;
+            height: 210px;
+            background: grey;
+            margin-bottom: 10px;
+            border: 4px solid #13B3EB;
+            overflow: hidden;
+        }
+        .modal-content {
+            color: white;
+            border-radius: 0px !important;
+            font-family: 'AmaticSC';
+            font-size: 30px;
+            background:  #00AEEF !important;
+            background-size: 100% 100% !important;
+        }
+
+        section.expediente {
+            font-size: 20px !important;
+            margin-top: 15px;
+        }
+
+        h2.fonte-especial {
+            text-align: center;
+            font-size: 2em;
+            background: #00AEEF !important;
+        }
+        h3.titulo-expediente {
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        p.cargo-expediente {
+         font-size: 16px !important;
+        }
+        p.nome-expediente {
+        font-size: 14px !important;
+        }
+    } /*Fim media querie*/
+

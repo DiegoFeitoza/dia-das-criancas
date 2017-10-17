@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<!--<iframe src="http://localhost/dia-das-criancas/shopping.html" width="100%" height="750px" frameborder="0"></iframe>-->
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Dia das Crianças - JC</title>
+
+  <link rel="stylesheet" type="text/css" href="src/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <!--    JS--><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <!--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="src\jquery-google-sheet-to-json/jquery-google-sheet-to-json.min.js"></script>
+  <script type="text/javascript">
+   var tabela = document.querySelector('#tabela-programacao');
+   var worksheets = [];
+   var titulo = $('#titulo-modal');
+
+        // CONTROLE DE JSON
+        function carregaGrafico(){
+
+         var tabelaApoio = document.querySelector('#tabela-programacao');
+
+         var horaTd = "";
+         var atracaoTd = "";
+         var trApoio;
+         worksheets.forEach(function(worksheet){
+          $.googleSheetToJSON('1mRJvsVVPXyOEN3ENYslL_fJaQxFYjrxxIX-mjkZQBZk', worksheet)
+          .done(function(rows){
+
+            console.log(rows);        
+            rows.forEach(function(objeto){
+              var programaTr = document.createElement("tr"); 
+              dataTd = montarTd(objeto.data);                  
+              horaTd = montarTd(objeto.horário);
+              atracaoTd = montarTd(objeto.atração);
+
+              programaTr.appendChild(dataTd);
+              programaTr.appendChild(horaTd);
+              programaTr.appendChild(atracaoTd);
+
+              console.log(programaTr);
+
+              trApoio = programaTr;
+              tabelaApoio.appendChild(trApoio);
+            });
+
+
+
+          })
+
+
+          .fail(function(err){
+            console.log('error! LISTA VAZIA',err);
+          });
+        });
+       }
+       function montarWks(valor){
+        var titulo = $('#titulo-modal');
+        var rua = $('#rua-lugar-escolhido');
+        var bairro = $('#bairro-lugar-escolhido');
+        var fone = $('#fone-lugar-escolhido');
+        switch(valor){
+         case 'Recife':
+         $('#foto-lugar').attr('src', 'src/img/recife.jpg');
+         $('#foto-lugar-mobile').attr('src', 'src/img/recife-mobile.jpg');
+         titulo.text('Shopping Recife');
+         rua.text('R. Pe. Carapuceiro, 777');
+         bairro.text('Boa Viagem, Recife - PE');
+         fone.text('(81) 3464.6000');
+         worksheets = ['1'];
+         break;
+
+         case 'Rio Mar':
+         $('#foto-lugar').attr('src', 'src/img/riomar.jpg');
+         $('#foto-lugar-mobile').attr('src', 'src/img/riomar-mobile.jpg');
+         titulo.text('Shopping Rio Mar');
+         rua.text('Av. República do Líbano, 251');
+         bairro.text('Pina, Recife - PE');
+         fone.text('(81) 3878-0000');                    
+         worksheets = ['2'];
+         break;
+
+         case 'Plaza':
+         $('#foto-lugar').attr('src', 'src/img/plaza.jpg');
+         $('#foto-lugar-mobile').attr('src', 'src/img/plaza-mobile.jpg');
+         titulo.text('Shopping Plaza');
+         rua.text('R. Dr. João Santos Filho, 255');
+         bairro.text('Casa Forte, Recife - PE');
+         fone.text('(81) 3265-8113');  
+         worksheets = ['3'];
+         break;
+
+         case 'Tacaruna':
+         $('#foto-lugar').attr('src', 'src/img/tacaruna.jpg');
+         $('#foto-lugar-mobile').attr('src', 'src/img/tacaruna-mobile.jpg');
+         titulo.text('Shopping Tacaruna');
+         rua.text('Av. Gov. Agamenon Magalhães, 153');
+         bairro.text('Santo Amaro, Recife - PE');
+         fone.text('(81) 3412-6000'); 
+         worksheets = ['4'];
+         break;
+
+         case 'Guararapes':
+         $('#foto-lugar').attr('src', 'src/img/guararapes.jpg');
+         $('#foto-lugar-mobile').attr('src', 'src/img/guararapes-mobile.jpg');
+         titulo.text('Shopping Guararapes');
+         rua.text('Av. Barreto de Menezes, 800');
+         bairro.text('Piedade, Jaboatão dos Guararapes - PE');
+         fone.text('(81) 2122-2211'); 
+         worksheets = ['5'];
+         break;
+       }
+       limparTabela();
+       carregaGrafico();
+     }
+
+     function limparTabela() {
+      var tabela = document.querySelector('#tabela-programacao');
+      var tableHeaderRowCount = 1;
+
+      if (tabela.rows.length != null) {
+        var rowCount = tabela.rows.length;
+        for (var i = tableHeaderRowCount; i < rowCount; i++) {
+          tabela.deleteRow(tableHeaderRowCount);
+        }
+      }
+    }
+    function montarTr(paciente){
+      var programaTr = document.createElement("tr");
+      programaTr.appendChild(horaTd);
+      programaTr.appendChild(atracaoTd);
+
+      return pacienteTr;
+    }
+
+    function adicionaPacienteNaTabela(paciente){
+      var tabela = document.querySelector('#tabela-programacao');
+      tabela.appendChild(programaTr);
+    }
+    function montarTd(valor){
+
+      var td = document.createElement('td');
+      td.textContent = valor;
+      return td;
+
+    }
+
+
+
+    function animar(value){
+      var campo = $(value);
+      campo.addClass('animated pulse');       
+    }
+
+    function zerar(value){
+      var campo = $(value);
+      campo.removeClass('animated pulse');
+    }
+  </script>
+
+
+</head>
+
+<body class="animated zoomIn">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" data-ride="carousel" data-interval="false">
+         <i class="fa fa-bars" aria-hidden="true"></i>
+       </button>
+       <a class="navbar-brand" href="index.html"><img src="src/img/logo.png" class="logo-menu-mobile"></a>
+     </div>
+     <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="info.html">Voltar aos locais</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="arte-total">
+
+  <div id="escolha-shopping">
+    <div class="container">
+      <div class="row">
+        <div class=" zerar col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div id="topo-shopping">
+            <img src="src/img/criancas.png" alt="crianças" class="imagem-criancas">
+          </div>
+          <div id="corpo-shopping">
+            <h2 id="titulo-lugar-escolhido">Shopping</h2>
+
+          </div>
+          <h2 id="frase-lugar-escolhido" class="titulo-info">Escolha o nosso shopping!!!</h2>
+          <div id="brincadeiras-casa-escolhidas">
+
+            <ul class="lista-shoppings">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <li onmouseover="animar('.recife');" onmouseout="zerar('.recife');">
+                      <a href="#" data-toggle="modal" data-target="#modal-shopping" onclick="montarWks('Recife')">
+                        <div id="campo-botao-info" class="recife">
+                          <div class="mascara-btn-info">
+
+                          </div>
+                          <span class="btn-escolhas"> Recife </span>
+                          <img src="src/img/botao-shopping-info.jpg" alt="Casa">
+                          <div class="sombra-btn-info">
+
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <li onmouseover="animar('.rio-mar');" onmouseout="zerar('.rio-mar');">
+                      <a href="#" data-toggle="modal" data-target="#modal-shopping"  onclick="montarWks('Rio Mar')"> 
+                        <div id="campo-botao-info" class="rio-mar">
+                          <div class="mascara-btn-info">
+
+                          </div>
+                          <span class="btn-escolhas"> Rio Mar </span>
+                          <img src="src/img/botao-shopping-info.jpg" alt="Casa">
+                          <div class="sombra-btn-info">
+
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <li onmouseover="animar('.plaza');" onmouseout="zerar('.plaza');">
+                      <a href="#" data-toggle="modal" data-target="#modal-shopping" onclick="montarWks('Plaza')">
+                        <div id="campo-botao-info" class="plaza">
+                          <div class="mascara-btn-info">
+
+                          </div>
+                          <span class="btn-escolhas"> Plaza </span>
+                          <img src="src/img/botao-shopping-info.jpg" alt="Casa">
+                          <div class="sombra-btn-info">
+
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <li onmouseover="animar('.tacaruna');" onmouseout="zerar('.tacaruna');">
+                      <a href="#" data-toggle="modal" data-target="#modal-shopping" onclick="montarWks('Tacaruna')">
+                        <div id="campo-botao-info" class="tacaruna">
+                          <div class="mascara-btn-info">
+
+                          </div>
+                          <span class="btn-escolhas"> Tacaruna </span>
+                          <img src="src/img/botao-shopping-info.jpg" alt="Casa">
+                          <div class="sombra-btn-info">
+
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                    <li onmouseover="animar('.guararapes');" onmouseout="zerar('.guararapes');">
+                      <a href="#" data-toggle="modal" data-target="#modal-shopping" onclick="montarWks('Guararapes')">
+                        <div id="campo-botao-info" class="guararapes">
+                          <div class="mascara-btn-info">
+
+                          </div>
+                          <span class="btn-escolhas"> Guararapes </span>
+                          <img src="src/img/botao-shopping-info.jpg" alt="Casa">
+                          <div class="sombra-btn-info">
+
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="modal-shopping" class="modal fade animated rubberBand" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title" id="titulo-modal">Programação</h2>
+        </div>
+        <div class="modal-body">
+          <div id="imagem-modal">
+            <img src="" alt="" id="foto-lugar" width="100%" height="auto" />
+            <img src="" alt="" id="foto-lugar-mobile" width="100%" height="auto" />
+          </div>
+          <div>
+            <p id="rua-lugar-escolhido"></p>
+            <p id="bairro-lugar-escolhido"></p>
+            <p id="fone-lugar-escolhido"></p>
+          </div>
+          <table style="width:100%" id="tabela-programacao">
+            <tr id="cabecalho-programacao">
+              <th>Data</th>
+              <th>Horário</th>
+              <th>Atração</th>
+            </tr>
+
+          </table>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+<section class="expediente">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tit-expediente">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="fonte-especial">Expediente</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <h3 class="titulo-expediente">Diretoria</h3>
+            <p class="cargo-expediente">Laurindo Ferreira</p>
+            <p class="nome-expediente">Diretor de Redação do Jornal do Commercio</p>
+            <p class="cargo-expediente">Maria Luiza Borges</p>
+            <p class="nome-expediente">Diretora de Conteúdos Digitais</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <h3 class="titulo-expediente">Conteúdo</h3>
+            <p class="cargo-expediente">Amanda Tavares</p>
+            <p class="nome-expediente">Reportagem</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <h3 class="titulo-expediente">Imagens</h3>
+            <p class="cargo-expediente">Acervo JC</p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <h3 class="titulo-expediente">Design</h3>
+            <p class="cargo-expediente">Diego Feitoza</p>
+            <p class="nome-expediente">Design e Front-End</p>
+            <p class="cargo-expediente">Thiago Lucas</p>
+            <p class="nome-expediente">Ilustrações</p>
+            <p class="cargo-expediente">Moisés Falcão</p>
+            <p class="nome-expediente">Coordenador de Design Digital</p>
+          </div>
+        </div>
+        <!-- row -->
+      </div>
+      <!-- col -->
+    </div>
+    <!-- row -->
+  </div>
+</section>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "jquery-google-sheet-to-json",
+        "scope": null,
+        "escapedName": "jquery-google-sheet-to-json",
+        "name": "jquery-google-sheet-to-json",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Program Files (x86)\\xampp\\htdocs\\googlesheets"
+    ]
+  ],
+  "_from": "jquery-google-sheet-to-json@latest",
+  "_id": "jquery-google-sheet-to-json@0.1.2",
+  "_inCache": true,
+  "_location": "/jquery-google-sheet-to-json",
+  "_nodeVersion": "5.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/jquery-google-sheet-to-json-0.1.2.tgz_1457976647463_0.15243796771392226"
+  },
+  "_npmUser": {
+    "name": "tleen",
+    "email": "tl@thomasleen.com"
+  },
+  "_npmVersion": "3.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "jquery-google-sheet-to-json",
+    "scope": null,
+    "escapedName": "jquery-google-sheet-to-json",
+    "name": "jquery-google-sheet-to-json",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery-google-sheet-to-json/-/jquery-google-sheet-to-json-0.1.2.tgz",
+  "_shasum": "bb49b607afbc2dbb0ad3d4e82de7abb540ad7302",
+  "_shrinkwrap": null,
+  "_spec": "jquery-google-sheet-to-json",
+  "_where": "C:\\Program Files (x86)\\xampp\\htdocs\\googlesheets",
+  "author": {
+    "name": "Thomas Leen"
+  },
+  "bugs": {
+    "url": "https://github.com/confluentforms/jquery-google-sheet-to-json/issues"
+  },
+  "dependencies": {},
+  "description": "JQuery plugin to aquire JSON data from a Google Docs spreadsheet in name/value format.",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint-config-standard": "^5.1.0",
+    "eslint-plugin-standard": "^1.3.2",
+    "gulp": "3.9.1",
+    "gulp-eslint": "2.0.0",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "1.5.3",
+    "jquery": "2.2.1",
+    "mocha": "2.4.5",
+    "mocha-phantomjs": "4.0.2",
+    "sinon-dist": "1.15.4"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dist": {
+    "shasum": "bb49b607afbc2dbb0ad3d4e82de7abb540ad7302",
+    "tarball": "https://registry.npmjs.org/jquery-google-sheet-to-json/-/jquery-google-sheet-to-json-0.1.2.tgz"
+  },
+  "gitHead": "bc01726e0dda4b0bd496f1ad01a923dc35cfc35b",
+  "homepage": "https://github.com/confluentforms/jquery-google-sheet-to-json#readme",
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "google",
+    "sheets",
+    "docs",
+    "json"
+  ],
+  "license": "MIT",
+  "main": "jquery-google-sheet-to-json.js",
+  "maintainers": [
+    {
+      "name": "tleen",
+      "email": "tl@thomasleen.com"
+    }
+  ],
+  "name": "jquery-google-sheet-to-json",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/confluentforms/jquery-google-sheet-to-json.git"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha-phantomjs/bin/mocha-phantomjs test/standard/index.html && ./node_modules/mocha-phantomjs/bin/mocha-phantomjs test/minified/index.html"
+  },
+  "version": "0.1.2"
+}
